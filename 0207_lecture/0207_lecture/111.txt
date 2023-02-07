@@ -1,0 +1,4 @@
+hello world!
+hello hello
+하이 하이
+hi C++ hi hi
