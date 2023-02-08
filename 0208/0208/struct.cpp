@@ -1,14 +1,13 @@
 #include<iostream>
 using namespace std;
-struct Position {
-	int x;
-	int y;
+struct Rectangle {
+	double width;
+	double height;
 };
 
 int main() {
-	//Position p;
-	//p.x = 3;
-	//p.y = 4;
-	Position p{ 3,4 };
-	cout << p.x << " " << p.y << endl;
+	Rectangle A;
+	cout << "가로, 세로 길이를 입력하세요: ";
+	cin >> A.width >> A.height;
+	cout << "넓이는: " << A.width * A.height << endl;
 }
