@@ -6,6 +6,7 @@ using namespace std;
 int main() {
 	string pw, name, phonenum, str, str2, line, file_content = "";
 	ifstream file_r, file_r2; 
+	ofstream file("member.txt");
 	file << name << " " << phonenum;
 	file_r.open("member.txt");
 	file_r2.open("member_tel.txt");
