@@ -33,7 +33,7 @@ int main() {
 	Character cha(name);
 
 	while (num!=0) {
-		cout << "무슨 조작을 하시겠습니까?(0~4): ";
+		cout << "무슨 조작을 하시겠습니까?(0~5): ";
 		cin >> num;
 		if (num == 1) {
 			cout << "이름 변경: ";
