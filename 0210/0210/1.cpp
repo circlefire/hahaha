@@ -6,7 +6,7 @@ protected:
 	string name;
 	string position;
 public:
-	virtual void test() {
+	void test() {
 		cout << "Person의 테스트 함수입니다.\n";
 	}
 	string get_position() {
