@@ -1,54 +1,34 @@
-#include<iostream>
-using namespace std;
+#include <iostream>
 
-class Shape {
+using std::string;
+using std::cout;
+using std::cin;
+using std::endl;
+
+//private > protected > public
+class Person {
 protected:
-	int a;
-	int b;
+	string name;
 public:
-	void printInfo() {
-		cout << "변의 개수: " << a << "밑변의 길이: " << b;
+	Person() {}
+	string get_name() {
+		return name;
+	}
+	void print() {
+		cout << "Person print\n";
 	}
 };
 
-class Rectangle : public Shape {
-	int cero;
+class Student : public Person { // 기본값 private
+	string stu_id;
 public:
-	Rectangle(int a, int b, int cero) {
-		this->a = a;
-		this->b = b;
-		this->cero = cero;
-	}
-	void area() {
-		cout << "넓이: " << b * cero << endl;
-	}
-};
-
-class Triangle : public Shape {
-	int height;
-public:
-	Triangle(int a, int b, int height) {
-		this->a = a;
-		this->b = b;
-		this->height = height;
-	}
-	void area() {
-		cout << "넓이: " << b * height / 2 << endl;
+	Student() : Person() {}
+	void print(int a, int b) {
+		cout << "Student print\n";
 	}
 };
 
 int main() {
-	int a, b, h;
-	while (1) {
-		cout << "객체 생성(변의 개수(3 or 4), 밑변의 길이, 높이): ";
-		cin >> a >> b >> h;
-		if (a == 4) {
-			Rectangle rect(a, b, h);
-			rect.area();
-		}
-		else if (a == 3) {
-			Triangle tri(a, b, h);
-			tri.area();
-		}
-	}
+	Student s2;
+	s2.print(1,2);
 }
