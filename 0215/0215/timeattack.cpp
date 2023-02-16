@@ -9,8 +9,8 @@ int main() {
 	int n, wordnum=0;
 	
 	word = "airplane";
-	line = "airplane";
-	cout << "airplane\n";
+	line = word;
+	cout << word << endl;
 	while (1) {
 		clock_t endTime = clock();
 		if (((endTime - startTime) / CLOCKS_PER_SEC) >= 10) {

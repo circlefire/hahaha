@@ -16,8 +16,8 @@ int main() {
 	}
 	int** num_arr = new int* [num];
 	for (int i = 0; i < num; i++) {
-		num_arr[i] = new int[num];
-	}
+		num_arr[i] = new int[num](); // 0으로 초기화~!
+	}/*
 	for (int i = 0; i < num; i++) {
 		for (int j = 0; j < num; j++) {
 			if (i == 0 && j == num / 2) {
@@ -27,12 +27,11 @@ int main() {
 				num_arr[i][j] = 0;
 			}
 		}
-	}
-
+	}*/
+	num_arr[0][num / 2] = 1;
 	standard = num_arr[0][num / 2];
 	int x = 0, y = num / 2;
 	for (int i = 1; i < num * num; i++) {
-		int flag = false;
 		standard += 1;
 		x -= 1;
 		y += 1;
