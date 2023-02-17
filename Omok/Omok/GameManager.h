@@ -3,6 +3,9 @@
 
 class GameManager
 {
+	void SetConsoleSize();
+	Position m_CenterPosition;
+	int MainMenu();
 	DrawMap m_DrawManager;
 	Rect m_MapSize;
 public:
