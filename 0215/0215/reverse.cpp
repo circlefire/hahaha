@@ -2,7 +2,7 @@
 #include<iostream>
 #include<string>
 using namespace std;
-//[[1,3][1,4][4,5]]
+//{{1,3},{1,4},{4,5}}
 //cbade -> dabce -> dabec
 
 void reverse(string s, vector<vector<int>> interval) {
@@ -19,8 +19,7 @@ void reverse(string s, vector<vector<int>> interval) {
 		s.insert(a, s2);
 		i++;
 	}
-	cout << s;
-	cout << endl << endl << endl;
+	cout << s << endl;
 }
 
 

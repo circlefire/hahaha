@@ -41,8 +41,7 @@ int main() {
 		int user[3] = { unum1, unum2, unum3 };
 		if ((unum1 < 0 || unum1 > 9) || (unum2 < 0 || unum2 > 9) || (unum3 < 0 || unum3 > 9)) {
 			cout << "게임 종료";
-			is_error = true;
-			break;
+			return 0;
 		}
 		if (unum2 == unum1||unum2==unum3||unum1==unum3) {
 			cout << "서로 다른 숫자를 입력하세요.\n";
@@ -64,7 +63,5 @@ int main() {
 		strike = 0;
 		ball = 0;
 	}
-	if (is_error == false) {
-		cout << count << "번 만에 맞췄습니다!";
-	}
+	cout << count << "번 만에 맞췄습니다!";
 }
