@@ -16,7 +16,7 @@ int main() {
 	}
 	int** num_arr = new int* [num];
 	for (int i = 0; i < num; i++) {
-		num_arr[i] = new int[num](); // 0으로 초기화~!
+		num_arr[i] = new int[num](); // 끝에 () 또는 {}달아서 0으로 초기화~!
 	}/*
 	for (int i = 0; i < num; i++) {
 		for (int j = 0; j < num; j++) {
