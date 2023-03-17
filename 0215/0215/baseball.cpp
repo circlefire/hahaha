@@ -32,7 +32,6 @@ int main() {
 		}
 	}
 
-	bool is_error = false;
 	count = 0;
 	while (!is_dup) {
 		count++;

@@ -10,7 +10,7 @@ int main() {
 		cout << "개수를 입력하세요: ";
 		cin >> inputnum;
 
-		if (inputnum > 3 || inputnum < 0) {
+		if (inputnum > 3 || inputnum < 1) {
 			cout << "1~3 사이의 수를 입력하세요.";
 		}
 		else {

@@ -3,16 +3,16 @@
 
 using namespace std;
 
-int solution(string t, string p) {
-    int answer = 0;
-    for (int i = 0; i < t.size() - p.size() + 1; i++) {
-        string s = "";
-        for (int j = 0; j < p.size(); j++) {
-            s += t[i];
+vector<string> solution(string my_str, int n) {
+    vector<string> answer;
+    while (1) {
+        if (n >= my_str.size()) {
+            answer.push_back(my_str.substr(0, my_str.size()));
         }
-        t=stoi(t);
-        p=stoi(p);
-        if (t <= p) answer++;
+        answer.push_back(my_str.substr(0, n));
+        for (int i = 0; i < n; i++) {
+            answer.erase(answer.begin());
+        }
     }
     return answer;
 }

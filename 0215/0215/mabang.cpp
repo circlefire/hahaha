@@ -29,7 +29,7 @@ int main() {
 		}
 	}*/
 	num_arr[0][num / 2] = 1;
-	standard = num_arr[0][num / 2];
+	standard = 1;
 	int x = 0, y = num / 2;
 	for (int i = 1; i < num * num; i++) {
 		standard += 1;
@@ -44,9 +44,8 @@ int main() {
 		if (num_arr[x][y] != 0) {
 			if (y == 0) {
 				y = num - 1;
-				if (x == num - 1) {
-					x = 1;
-				}
+				x = 1;
+
 			}
 			else {
 				x += 2;
