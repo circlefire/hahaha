@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChatServer", "Chat\Chat.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Chatclient", "Chatclient\Chatclient.vcxproj", "{489D548A-6C6E-48FD-A81A-13B0B94D98B3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "client2", "client2\client2.vcxproj", "{E1DE004B-3C3A-43CF-BE9A-0384EBB2316E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{489D548A-6C6E-48FD-A81A-13B0B94D98B3}.Release|x64.Build.0 = Release|x64
 		{489D548A-6C6E-48FD-A81A-13B0B94D98B3}.Release|x86.ActiveCfg = Release|Win32
 		{489D548A-6C6E-48FD-A81A-13B0B94D98B3}.Release|x86.Build.0 = Release|Win32
+		{E1DE004B-3C3A-43CF-BE9A-0384EBB2316E}.Debug|x64.ActiveCfg = Debug|x64
+		{E1DE004B-3C3A-43CF-BE9A-0384EBB2316E}.Debug|x64.Build.0 = Debug|x64
+		{E1DE004B-3C3A-43CF-BE9A-0384EBB2316E}.Debug|x86.ActiveCfg = Debug|Win32
+		{E1DE004B-3C3A-43CF-BE9A-0384EBB2316E}.Debug|x86.Build.0 = Debug|Win32
+		{E1DE004B-3C3A-43CF-BE9A-0384EBB2316E}.Release|x64.ActiveCfg = Release|x64
+		{E1DE004B-3C3A-43CF-BE9A-0384EBB2316E}.Release|x64.Build.0 = Release|x64
+		{E1DE004B-3C3A-43CF-BE9A-0384EBB2316E}.Release|x86.ActiveCfg = Release|Win32
+		{E1DE004B-3C3A-43CF-BE9A-0384EBB2316E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
