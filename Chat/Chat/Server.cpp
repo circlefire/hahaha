@@ -80,7 +80,7 @@ int main() {
 			const char* buf = text.c_str();
 
 			msg = server_sock.user + " : " + buf;
-
+			//콜론 앞에 공백문자를 넣어야 stringstream으로 user추출가능
 			send_msg(msg.c_str());
 		}
 		for (int i = 0; i < MAX_CLIENT; i++) {
