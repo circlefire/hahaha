@@ -40,7 +40,7 @@ int main() {
 	WSADATA wsa;
 	int code = WSAStartup(MAKEWORD(2, 2), &wsa);
 	if (!code) {
-		cout << " 사용할 닉네임 입력 >> ";
+		cout << " 사용할 ID와 PW를 입력하세요(띄어쓰기로 구분) >> ";
 		cin >> my_nick;
 
 		client_sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
