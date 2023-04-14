@@ -28,25 +28,25 @@ int main()
 		exit(1);
 	}
 	// please create database "cpp_db" ahead of time
-	con->setSchema("cpp_db");
+	con->setSchema("chat_db");
 	// 데이터베이스 쿼리 실행
 	stmt = con->createStatement();
 	stmt->execute("DROP TABLE IF EXISTS inventory");
 	cout << "Finished dropping table (if existed)" << endl;
-	stmt->execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
+	stmt->execute("CREATE TABLE chat_table (id serial PRIMARY KEY, user_id VARCHAR(50), user_pw INTEGER);");
 	cout << "Finished creating table" << endl;
 	delete stmt;
-	pstmt = con->prepareStatement("INSERT INTO inventory(name, quantity) VALUES(?,?)");
-	pstmt->setString(1, "banana");
-	pstmt->setInt(2, 150);
+	pstmt = con->prepareStatement("INSERT INTO chat_table(user_id, user_pw) VALUES(?,?)");
+	pstmt->setString(1, "kim");
+	pstmt->setInt(2, 1234);
 	pstmt->execute();
 	cout << "One row inserted." << endl;
-	pstmt->setString(1, "orange");
-	pstmt->setInt(2, 154);
+	pstmt->setString(1, "amy");
+	pstmt->setInt(2, 2345);
 	pstmt->execute();
 	cout << "One row inserted." << endl;
 	pstmt->setString(1, "apple");
-	pstmt->setInt(2, 100);
+	pstmt->setInt(2, 123);
 	pstmt->execute();
 	cout << "One row inserted." << endl;
 	// MySQL Connector/C++ 정리

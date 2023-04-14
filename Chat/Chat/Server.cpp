@@ -1,26 +1,16 @@
-/*
-SQL연결
-a.(채팅) 로그인 기능 구현
-	- 아이디, 비번 입력
-	- 로그인 실패시 로그인 반복
-	- MySQL안에 저장되어있는 아이디 & 비번 일치하는지 여부
-		1)미리 user 데이터를 저장해놓고 쓰는 방법
-		2)회원 가입 기능 구현(자유)
-	- 중복 아이디가 있다면 다시 입력 받기
-	- 아이디 비밀번호 받아서 DB에 저장
-b. 채팅 내역 MySQL에 저장하기. 채팅에 입장하면 저장되어 있는 기존 채팅 내역 출력하고 시작
-
-+ 추가로 구현하고 싶은 기능(If you want!)
-	- DM?
-	- 팀원과 협의해서 진행 
-*/
 #pragma comment(lib, "ws2_32.lib")
 #include <iostream>
 #include <string>
 #include <vector>
 #include <thread>
 #include <WinSock2.h>
-
+#include <stdlib.h>
+#include <iostream>
+#include "mysql_connection.h"
+#include <cppconn/driver.h>
+#include <cppconn/exception.h>
+#include <cppconn/resultset.h>
+#include <cppconn/prepared_statement.h>
 #define MAX_SIZE 1024
 #define MAX_CLIENT 3
 
@@ -28,6 +18,11 @@ using std::cout;
 using std::cin;
 using std::endl;
 using std::string;
+using std::vector;
+
+const string server = "tcp://127.0.0.1:3306"; // 데이터베이스 주소
+const string username = "user"; // 데이터베이스 사용자
+const string password = "1234"; // 데이터베이스 접속 비밀번호
 
 struct SOCKET_INFO {
 	SOCKET sck;
@@ -62,7 +57,7 @@ void del_client(int idx);
 int main() {
 	WSADATA wsa;
 
-	int code = WSAStartup(MAKEWORD(2,2),&wsa);
+	int code = WSAStartup(MAKEWORD(2, 2), &wsa);
 	// winsock version 2.2 사용
 	// winsock 초기화 하는 함수
 	// 실행 성공하면 0반환, 실패하면 0이외의 값 반환
@@ -102,7 +97,7 @@ void server_init() {
 	- 통신 타입 설정
 	- 어떤 프로토콜 사용할지
 	*/
-	
+
 	SOCKADDR_IN server_addr = {};
 	server_addr.sin_family = AF_INET;
 	server_addr.sin_port = htons(7777);
@@ -149,8 +144,8 @@ void add_client() {
 	*/
 	new_client.user = string(buf);
 	// buf를 string으로 변환해서 담아줌
-
-	string msg = "[공지] " + new_client.user + "님이 입장했습니다.";
+	//string str = new_client.user.substr(0, new_client.user.find("/"));
+	string msg = "[공지] " + new_client.user.substr(0, new_client.user.find("/")) + "님이 입장했습니다.";
 	cout << msg << endl;
 
 	sck_list.push_back(new_client);
@@ -175,12 +170,12 @@ void recv_msg(int idx) {
 		ZeroMemory(&buf, MAX_SIZE);
 		if (recv(sck_list[idx].sck, buf, MAX_SIZE, 0) > 0) {
 			//만약 정상적으로 받았다면
-			msg = sck_list[idx].user + ':' + buf;
+			msg = sck_list[idx].user.substr(0, sck_list[idx].user.find("/")) + ':' + buf;
 			cout << msg << endl;
 			send_msg(msg.c_str());
 		}
 		else {
-			msg = "[공지]" + sck_list[idx].user + "님이 퇴장했습니다.";
+			msg = "[공지] " + sck_list[idx].user.substr(0, sck_list[idx].user.find("/")) + "님이 퇴장했습니다.";
 			cout << msg << endl;
 			send_msg(msg.c_str());
 			del_client(idx);

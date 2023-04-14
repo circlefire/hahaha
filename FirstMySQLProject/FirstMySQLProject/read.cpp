@@ -33,10 +33,10 @@ int main()
 		exit(1);
 	}
 
-	con->setSchema("cpp_db");
+	con->setSchema("chat_db");
 
 	//select  
-	pstmt = con->prepareStatement("SELECT * FROM inventory;");
+	pstmt = con->prepareStatement("SELECT * FROM chat_table;");
 	result = pstmt->executeQuery();
 
 	while (result->next())
